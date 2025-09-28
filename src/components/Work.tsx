@@ -21,15 +21,17 @@ const Work = ({
 	location,
 	timeline,
 	advisors,
+    website
 }: {
 	company: string;
 	logo: string;
 	department: string;
 	role: string;
 	location?: string;
-	principalInvestigator?: { name: string; url: string; };
+	principalInvestigator?: string;
 	timeline?: string;
 	advisors?: string;
+    website: string;
 }) => {
 	const [props, set] = useSpring(() => ({
 		xys: [0, 0, 1],
@@ -37,43 +39,45 @@ const Work = ({
 	}));
 
 	return (
-		<Container
-			onMouseMove={({ clientX: x, clientY: y }: { clientX: number; clientY: number }) =>
-				set({ xys: calc(x, y) })
-			}
-			onMouseLeave={() => set({ xys: [0, 0, 1] })}
-			//@ts-ignore
-			style={{ transform: props.xys.interpolate(trans) }}
-		>
-			<Header>
-				<img alt={`${company} Logo`} draggable={false} src={logo} />
-				<div>
-					<sub>{timeline}</sub>
-					<h3>
-						{company} <ExternalLinkIcon />
-					</h3>
-					<span>{department}</span>
-					<Location>
-						{location}
-					</Location>
-				</div>
-			</Header>
-			<Content>
-				<p>
-					{role}{" "}
-					{principalInvestigator && (
-						<>
-							under{" "}
-							<MentorTooltip title={advisors} arrow>
-								<Advisor href={principalInvestigator['url']} target="_blank" rel="noopener noreferrer">
-									{principalInvestigator['name']}
-								</Advisor>
-							</MentorTooltip>
-						</>
-					)}
-				</p>
-			</Content>
-		</Container>
+        <A href={website} target="_blank" rel="noopener">
+            <Container
+                onMouseMove={({ clientX: x, clientY: y }: { clientX: number; clientY: number }) =>
+                    set({ xys: calc(x, y) })
+                }
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                //@ts-ignore
+                style={{ transform: props.xys.interpolate(trans) }}
+            >
+                <Header>
+                    <img alt={`${company} Logo`} draggable={false} src={logo} />
+                    <div>
+                        <sub>{timeline}</sub>
+                        <h3>
+                            {company} <ExternalLinkIcon />
+                        </h3>
+                        <span>{department}</span>
+                        <Location>
+                            {location}
+                        </Location>
+                    </div>
+                </Header>
+                <Content>
+                    <p>
+                        {role}{" "}
+                        {principalInvestigator && (
+                            <>
+                                under{" "}
+                                <MentorTooltip title={advisors} arrow>
+                                    <Advisor>
+                                        {principalInvestigator}
+                                    </Advisor>
+                                </MentorTooltip>
+                            </>
+                        )}
+                    </p>
+                </Content>
+            </Container>
+        </A>
 	);
 };
 
@@ -99,6 +103,15 @@ const MentorTooltip = styled(({ className, ...props }: TooltipProps) => (
 		color: '#1f1f1f',
 	},
 }));
+
+const A = styled.a`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+`;
 
 const Location = styled.a`
 	width: 100%;

@@ -16,9 +16,10 @@ const Where = () => {
             company                 : "Northwell Health",
             department              : "Feinstein Institutes for Medical Research",
             location                : "Manhasset, New York",
-            principalInvestigator   : { name: "Dr. Douglas Nixon", url: "https://feinstein.northwell.edu/institutes-researchers/our-researchers/douglas-f-nixon-md-phd" },
+            principalInvestigator   : "Dr. Douglas Nixon",
             advisors                : "Advised by Helena Reyes-Gopar, Nicholas Dopkins, and Douglas Nixon",
-            role                    : "Consultant Bioinformatician"
+            role                    : "Consultant Bioinformatician",
+            website                 : "https://feinstein.northwell.edu/institutes-researchers/institute-translational-research"
         },
         {
             logo                    : ColdSpringHarborLaboratory,
@@ -26,7 +27,8 @@ const Where = () => {
             company                 : "Cold Spring Harbor Laboratory",
             department              : "Science education",
             location                : "Cold Spring Harbor, New York",
-            role                    : "Head College Intern"
+            role                    : "Head College Intern",
+            website                 : "https://dnalc.cshl.edu/"
         },
         {
             logo                    : CarnegieMellonUniversity,
@@ -34,9 +36,10 @@ const Where = () => {
             company                 : "Carnegie Mellon University",
             department              : "Department of Psychology",
             location                : "Pittsburgh, Pennsylvania",
-            principalInvestigator   : { name: "Dr. Jonathan Tsay", url: "https://www.tsaylab.com/" },
+            principalInvestigator   : "Dr. Jonathan Tsay",
             advisors                : "Advised by Jonathan Tsay",
-            role                    : "Undergraduate Research Fellow"
+            role                    : "Undergraduate Research Fellow",
+            website                 : "https://www.tsaylab.com/"
         },
         {
             logo                    : WeillCornell,
@@ -44,9 +47,10 @@ const Where = () => {
             company                 : "Weill Cornell Medicine",
             department              : "Department of Medicine",
             location                : "New York, New York",
-            principalInvestigator   : { name: "Dr. Douglas Nixon", url: "https://vivo.weill.cornell.edu/display/cwid-dnixon" },
+            principalInvestigator   : "Dr. Douglas Nixon",
             advisors                : "Advised by Bhavya Singh, Jez L. Marston, and Douglas Nixon",
-            role                    : "Undergraduate Research Assistant"
+            role                    : "Undergraduate Research Assistant",
+            website                 : "https://medicine.weill.cornell.edu/divisions-programs/infectious-diseases"
         },
         {
             logo                    : GladstoneInstitutes,
@@ -54,9 +58,10 @@ const Where = () => {
             company                 : "University of California, San Francisco",
             department              : "Gladstone Institute",
             location                : "San Francisco, California",
-            principalInvestigator   : { name: "Dr. Nevan Krogan", url: "https://kroganlab.ucsf.edu/krogan-lab" },
+            principalInvestigator   : "Dr. Nevan Krogan",
             advisors                : "Advised by Mehdi Bouhaddou",
-            role                    : "High School Student Researcher"
+            role                    : "High School Student Researcher",
+            website                 : "https://kroganlab.ucsf.edu/krogan-lab"
         }
     ];
 
@@ -64,14 +69,15 @@ const Where = () => {
     const previous = experiences.filter(experience => !experience.timeline.includes("Present"));
 
     type WorkExperience = {
-        logo: string;
-        timeline: string;
-        company: string;
-        department: string;
-        location: string;
-        principalInvestigator?: { name: string; url: string };
-        advisors?: string;
-        role: string;
+        logo                    : string;
+        timeline                : string;
+        company                 : string;
+        department              : string;
+        location                : string;
+        principalInvestigator?  : string;
+        advisors?               : string;
+        role                    : string;
+        website                 : string;
     };
 
     const renderWorkItems = (workList: WorkExperience[]) => {
@@ -85,6 +91,7 @@ const Where = () => {
                 principalInvestigator   = {work.principalInvestigator}
                 advisors                = {work.advisors}
                 role                    = {work.role}
+                website                 = {work.website}
             />
         ));
     };

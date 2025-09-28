@@ -1,7 +1,7 @@
-import { animated, useSpring } from 'react-spring';
-import styled from 'styled-components';
-import { ExternalLinkIcon } from './Icons';
-import Tooltip, { tooltipClasses, TooltipProps } from '@mui/material/Tooltip';
+import { animated, useSpring } from "react-spring";
+import styled from "styled-components";
+import { ExternalLinkIcon } from "./Icons";
+import Tooltip, { tooltipClasses, TooltipProps } from "@mui/material/Tooltip";
 
 const calc = (x: number, y: number) => [
 	-(y - window.innerHeight / 2) / 200,
@@ -85,22 +85,22 @@ const MentorTooltip = styled(({ className, ...props }: TooltipProps) => (
 	<Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
 	[`& .${tooltipClasses.tooltip}`]: {
-		backgroundColor: '#1f1f1f',
-		color: '#fff',
+		backgroundColor: "#1f1f1f",
+		color: "#fff",
 		minWidth: 150,
-		maxWidth: 'none',
-		width: 'auto',
-		fontFamily: 'inherit',
-		fontSize: '0.925rem',
-		padding: '8px 20px',
-		borderRadius: '8px',
-		whiteSpace: 'normal',
+		maxWidth: "none",
+		width: "auto",
+		fontFamily: "inherit",
+		fontSize: "0.95rem",
+		padding: "8px 20px",
+		borderRadius: "8px",
+		whiteSpace: "normal",
 		lineHeight: 1.25,
-		boxShadow: '0px 3px 10px rgba(0,0,0,0.3)',
-		textAlign: 'center',
+		boxShadow: "0px 3px 10px rgba(0,0,0,0.3)",
+		textAlign: "center",
 	},
 	[`& .${tooltipClasses.arrow}`]: {
-		color: '#1f1f1f',
+		color: "#1f1f1f",
 	},
 }));
 

@@ -5,14 +5,14 @@ import { Helmet } from "react-helmet";
 
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
-import Where from "./pages/Where";
+import Experience from "./pages/Experience";
 import Publications from "./pages/Publications";
 
 function App() {
     return (
         <Wrapper>
-            <Helmet>
-                <title>Nicholas F. Liotta</title>
+            <Helmet titleTemplate={'%s • Nicholas'}>
+                <title>Nicholas Liotta</title>
             </Helmet>
 
             <MainContent
@@ -26,7 +26,7 @@ function App() {
                         <AnimatePresence>
                             <Switch>
                                 <Route exact path="/" component={Home} />
-                                <Route exact path="/where" component={Where} />
+                                <Route exact path="/where" component={Experience} />
                                 <Route exact path="/publications" component={Publications} />
                                 {/* <Route exact path="/photography" component={Photography} /> */}
                             </Switch>

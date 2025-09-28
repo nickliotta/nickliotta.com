@@ -8,7 +8,7 @@ import CarnegieMellonUniversity from "../assets/images/carnegie-mellon-universit
 import GladstoneInstitutes from "../assets/images/gladstone-institutes.png";
 import { Helmet } from "react-helmet";
 
-const Where = () => {
+const Experience = () => {
     const experiences = [
         {
             logo                    : Northwell,
@@ -124,7 +124,7 @@ const Where = () => {
     return (
         <PageWrapper>
             <Helmet>
-                <title>Where</title>
+                <title>Experience</title>
             </Helmet>
 
             <h1>Where I am</h1>
@@ -149,4 +149,4 @@ const WorkWrapper = styled.div`
     }
 `;
 
-export default Where;
+export default Experience;

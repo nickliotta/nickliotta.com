@@ -173,14 +173,18 @@ const ClickableLink = styled.a<{ color?: string }>`
 
 const AbstractBox = styled.div<{ show: boolean }>`
 	opacity: ${({ show }) => (show ? 1 : 0)};
-	transition: opacity 0.8s ease;
-	max-height: ${({ show }) => (show ? "1000px" : "0")};
+	max-height: ${({ show }) => (show ? "500px" : "0")};
+	padding: ${({ show }) => (show ? "0.5rem" : "0 0.5rem")};
 	overflow: hidden;
-	padding: ${({ show }) => (show ? "0.5rem" : "0")};
 	font-family: "Open Sans", sans-serif;
 	background-color: hsl(var(--primary-700));
 	border-radius: 5px;
 	font-size: 0.95rem;
+	transition:
+		opacity 1s ease,
+		max-height 1s ease,
+		padding 1s ease;
 `;
+
 
 export default Publication;

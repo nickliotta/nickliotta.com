@@ -8,7 +8,7 @@ export default defineConfig({
     plugins: [react(), viteTsconfigPaths(), svgrPlugin()],
     build: {
         rollupOptions: {
-            external: ["#minpath"], 
+           external: ['#minpath', '#minproc'], 
         },
     },
 });

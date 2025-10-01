@@ -11,17 +11,15 @@ export default function BlogPost() {
     const { slug } = useParams<{ slug: string }>();
     const [content, setContent] = useState<string | null>(null);
 
-    const markdownFiles = import.meta.glob("../posts/*.md", { as: "raw" }) as Record<
-        string,
-        () => Promise<string>
-    >;
+    const markdownFiles = import.meta.glob('../posts/*.md', { as: 'raw', eager: true });
 
-    const fileKey = Object.keys(markdownFiles).find((path) => path.endsWith(`${slug}.md`));
+    const fileKey = Object.keys(markdownFiles).find((path) =>
+    path.endsWith(`${slug}.md`)
+    );
 
     useEffect(() => {
-        if (!fileKey) return;
-
-        markdownFiles[fileKey]().then((text) => setContent(text));
+    if (!fileKey) return;
+    setContent(markdownFiles[fileKey]); // Already a string because eager: true
     }, [fileKey]);
 
     if (!fileKey) return <Redirect to="/posts" />;

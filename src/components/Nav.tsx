@@ -115,9 +115,9 @@ const Nav = () => {
 						{/* <Page active={pathname === "/photography" ? 1 : 0} to="/photography">
 							photography
 						</Page> */}
-						<Page active={pathname === "/posts" ? 1 : 0} to="/posts">
+						{/* <Page active={pathname === "/posts" ? 1 : 0} to="/posts">
 							posts
-						</Page> 
+						</Page>  */}
 					</div>
 
 					<Icons>

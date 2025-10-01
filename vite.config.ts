@@ -7,4 +7,9 @@ import commonjs from 'vite-plugin-commonjs';
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), viteTsconfigPaths(), svgrPlugin(), commonjs()],
+    build: {
+        rollupOptions: {
+        external: ['#minpath', '#minurl', '#minproc'], // <--- tell Rollup not to bundle these
+        },
+    },
 });

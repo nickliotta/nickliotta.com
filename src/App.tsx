@@ -30,8 +30,8 @@ function App() {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/where" component={Experience} />
                                 <Route exact path="/publications" component={Publications} />
-                                <Route exact path="/posts" component={Posts} />
-                                <Route exact path="/posts/:slug" component={Post} />
+                                {/* <Route exact path="/posts" component={Posts} />
+                                <Route exact path="/posts/:slug" component={Post} /> */}
                                 {/* <Route exact path="/photography" component={Photography} /> */}
                             </Switch>
                         </AnimatePresence>

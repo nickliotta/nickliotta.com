@@ -11,10 +11,7 @@ type PostMeta = {
     date: string;
 };
 
-const markdownFiles = import.meta.glob("../posts/*.md", { as: "raw" }) as Record<
-    string,
-    () => Promise<string>
->;
+const markdownFiles = import.meta.glob('../posts/*.md', { as: 'raw', eager: false });
 
 const Posts = () => {
     const [posts, setPosts] = useState<PostMeta[]>([]);

@@ -105,12 +105,12 @@ const MentorTooltip = styled(({ className, ...props }: TooltipProps) => (
 }));
 
 const A = styled.a`
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 
-  &:hover {
-    text-decoration: none !important;
-  }
+    &:hover {
+        text-decoration: none !important;
+    }
 `;
 
 const Location = styled.a`

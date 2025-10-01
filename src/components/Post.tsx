@@ -1,0 +1,108 @@
+import { useParams, Redirect } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import PageWrapper from "../pages/PageWrapper";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+export default function BlogPost() {
+    const { slug } = useParams<{ slug: string }>();
+    const [content, setContent] = useState<string | null>(null);
+
+    const markdownFiles = import.meta.glob("../posts/*.md", { as: "raw" }) as Record<
+        string,
+        () => Promise<string>
+    >;
+
+    const fileKey = Object.keys(markdownFiles).find((path) => path.endsWith(`${slug}.md`));
+
+    useEffect(() => {
+        if (!fileKey) return;
+
+        markdownFiles[fileKey]().then((text) => setContent(text));
+    }, [fileKey]);
+
+    if (!fileKey) return <Redirect to="/posts" />;
+    if (!content) return <p>Loading...</p>;
+
+    return (
+        <PageWrapper>
+            <Article>
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                        code({ node, inline, className, children, ...props }) {
+                            const match = /language-(\w+)/.exec(className || "");
+                            return !inline && match ? (
+                                <SyntaxHighlighter
+                                    style={oneDark}
+                                    language={match[1]}
+                                    PreTag="div"
+                                    {...props}
+                                >
+                                    {String(children).replace(/\n$/, "")}
+                                </SyntaxHighlighter>
+                            ) : (
+                                <code
+                                    style={{
+                                        backgroundColor: "#333",
+                                        padding: "0.2rem 0.4rem",
+                                        borderRadius: "4px",
+                                        fontFamily: "Space Mono, monospace",
+                                    }}
+                                    {...props}
+                                >
+                                    {children}
+                                </code>
+                            );
+                        },
+                    }}
+                >
+                    {content}
+                </ReactMarkdown>
+            </Article>
+        </PageWrapper>
+    );
+}
+
+const Article = styled.article`
+    color: #fff;
+    line-height: 1.5;
+
+    h1 {
+        margin-top: 0.5em; // aligns with other pages
+        margin-bottom: -1.25rem;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: #ff65b2;
+        text-decoration: none !important;
+
+        &:hover {
+            color: #ff8ccf;
+            text-decoration: none !important;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+`;

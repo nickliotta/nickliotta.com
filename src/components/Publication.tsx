@@ -89,7 +89,6 @@ const Publication = ({
 	);
 };
 
-// Styled components
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -104,7 +103,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h3`
-	margin: 0 0 0.2rem 0;
+	margin: 0 0 0.1rem 0;
 	color: #fff;
 `;
 
@@ -113,7 +112,7 @@ const Authors = styled.p`
 	white-space: pre-wrap;
 	overflow-wrap: anywhere;
 	word-break: break-word;
-	margin: 0;
+	margin: 0 0 0.1rem 0;
 `;
 
 const Journal = styled.p`

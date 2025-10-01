@@ -8,9 +8,10 @@ import Doing from "./Doing";
 import useSound from "use-sound";
 
 const pathnameOffsets: { [key: string]: number } = {
-	"/": 0,
-	"/where": 39,
-	"/publications": 78
+	"/"             : 0,
+	"/where"        : 39,
+	"/publications" : 78,
+    "/posts"        : 117
 };
 
 const Nav = () => {
@@ -31,8 +32,10 @@ const Nav = () => {
 	}, [pathname]);
 
 	const pageIndicatorOffset = useMemo(
-		() => (pathname ? pathnameOffsets[pathname] ?? -180 : 0),
-		[pathname]
+        () => pathname 
+            ? pathnameOffsets[pathname.startsWith("/posts") ? "/posts" : pathname] ?? -180
+            : 0,
+        [pathname]
 	);
 
 	const pageIndicatorOffsetWithDecoration = useMemo(
@@ -112,6 +115,9 @@ const Nav = () => {
 						{/* <Page active={pathname === "/photography" ? 1 : 0} to="/photography">
 							photography
 						</Page> */}
+						<Page active={pathname === "/posts" ? 1 : 0} to="/posts">
+							posts
+						</Page> 
 					</div>
 
 					<Icons>

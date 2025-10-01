@@ -7,6 +7,8 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Experience from "./pages/Experience";
 import Publications from "./pages/Publications";
+import Posts from "./pages/Posts";
+import Post from "./components/Post";
 
 function App() {
     return (
@@ -28,6 +30,8 @@ function App() {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/where" component={Experience} />
                                 <Route exact path="/publications" component={Publications} />
+                                <Route exact path="/posts" component={Posts} />
+                                <Route exact path="/posts/:slug" component={Post} />
                                 {/* <Route exact path="/photography" component={Photography} /> */}
                             </Switch>
                         </AnimatePresence>

@@ -78,7 +78,7 @@ const Article = styled.article`
     color: #fff;
     line-height: 1.5;
     h1 {
-        margin-top: 0.5em;
+        margin-top: 0.67em;
         margin-bottom: -1.25rem;
     }
     h2, h3, h4, h5, h6 {

@@ -1,4 +1,4 @@
-# nickliotta.github.io
+# nickliotta.com
 
 This is the React app that runs on [nickliotta.com](https://nickliotta.com).
 

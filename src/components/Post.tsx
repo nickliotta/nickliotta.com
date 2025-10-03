@@ -25,7 +25,7 @@ export default function BlogPost() {
     }, [slug]);
 
     if (notFound) return <Redirect to="/posts" />;
-    if (!content) return <p>Loading...</p>;
+    if (!content) return <p>...</p>;
 
     return (
         <PageWrapper>

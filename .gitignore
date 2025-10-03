@@ -1,0 +1,16 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/dist
+/.vscode
+
+# root
+yarn.lock
+.prettierrc
+vite-env.d.ts
+
+# in progress
+src/types/react-masonry-css.d.ts
+src/pages/Photography.tsx
+src/react-app-env.d.ts

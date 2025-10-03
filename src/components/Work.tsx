@@ -152,7 +152,7 @@ const Container = styled(animated.div)`
 	}
 
     @media (max-width: 768px) {
-        width: 23em; // narrower on mobile
+        width: 25em; // narrower on mobile
     }
 `;
 

@@ -77,17 +77,21 @@ export default function BlogPost() {
 const Article = styled.article`
     color: #fff;
     line-height: 1.5;
+    
     h1 {
         margin-top: 0.67em;
         margin-bottom: -1.25rem;
     }
+
     h2, h3, h4, h5, h6 {
         margin-top: 1.5rem;
         margin-bottom: 0.5rem;
     }
+
     p {
         margin-bottom: 1rem;
     }
+
     a {
         color: #ff65b2;
         text-decoration: none !important;
@@ -96,6 +100,7 @@ const Article = styled.article`
             text-decoration: none !important;
         }
     }
+        
     img {
         max-width: 100%;
         height: auto;

@@ -150,6 +150,10 @@ const Container = styled(animated.div)`
 	&:hover {
 		background-color: hsl(var(--primary-800));
 	}
+
+    @media (max-width: 768px) {
+        width: 23em; // narrower on mobile
+    }
 `;
 
 const Advisor = styled.a`

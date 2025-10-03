@@ -95,7 +95,7 @@ const Nav = () => {
 						<Location
 							target="_blank"
 							href="https://engineering.buffalo.edu/"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 						>
 							<NavigationIcon />
 							University at Buffalo
@@ -121,19 +121,19 @@ const Nav = () => {
 					</div>
 
 					<Icons>
-						<a href="https://www.linkedin.com/in/nickliotta/">
+						<a href="https://www.linkedin.com/in/nickliotta/" target="_blank" rel="noopener noreferrer">
 							<LinkedInLogo />
 						</a>
-						<a href="https://github.com/nickliotta">
+						<a href="https://github.com/nickliotta" target="_blank" rel="noopener noreferrer">
 							<GitHubLogo />
 						</a>
-						<a href="https://orcid.org/0009-0008-3358-5881">
+						<a href="https://orcid.org/0009-0008-3358-5881" target="_blank" rel="noopener noreferrer">
 							<OrcidLogo />
 						</a>
-						<a href="https://scholar.google.com/citations?user=OZ2ZWnIAAAAJ">
+						<a href="https://scholar.google.com/citations?user=OZ2ZWnIAAAAJ" target="_blank" rel="noopener noreferrer">
 							<GoogleScholarLogo />
 						</a>
-						<a href="/resume.pdf">
+						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
 							<ResumeLogo />
 						</a>
 					</Icons>

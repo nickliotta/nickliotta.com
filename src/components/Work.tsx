@@ -39,7 +39,7 @@ const Work = ({
 	}));
 
 	return (
-        <A href={website} target="_blank" rel="noopener">
+        <A href={website} target="_blank" rel="noopener noreferrer">
             <Container
                 onMouseMove={({ clientX: x, clientY: y }: { clientX: number; clientY: number }) =>
                     set({ xys: calc(x, y) })

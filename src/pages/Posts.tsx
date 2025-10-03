@@ -11,33 +11,35 @@ type PostMeta = {
     date: string;
 };
 
-const markdownFiles = import.meta.glob('../posts/*.md', { as: 'raw', eager: false });
-
 const Posts = () => {
     const [posts, setPosts] = useState<PostMeta[]>([]);
 
     useEffect(() => {
         const loadPosts = async () => {
-            const loadedPosts: PostMeta[] = [];
+            try {
+                const res = await fetch("/posts/posts.json");
+                const manifest: { slug: string; file: string }[] = await res.json();
 
-            for (const path in markdownFiles) {
-                const slugMatch = path.match(/\/([\w-]+)\.md$/);
-                if (!slugMatch) continue;
-                const slug = slugMatch[1];
+                const loadedPosts: PostMeta[] = [];
 
-                const content = await markdownFiles[path]();
-                const lines = content.split("\n");
+                for (const { slug, file } of manifest) {
+                    const res = await fetch(`/posts/${file}`);
+                    const content = await res.text();
+                    const lines = content.split("\n");
 
-                const titleLine = lines.find((line) => line.startsWith("#")) || "";
-                const title = titleLine.replace(/^#+\s*/, "");
+                    const titleLine = lines.find((line) => line.startsWith("#")) || "";
+                    const title = titleLine.replace(/^#+\s*/, "");
 
-                const dateLine = lines.find((line) => line.toLowerCase().startsWith("posted on")) || "";
-                const date = dateLine.replace(/posted on\s*/i, "");
+                    const dateLine = lines.find((line) => line.toLowerCase().startsWith("posted on")) || "";
+                    const date = dateLine.replace(/posted on\s*/i, "");
 
-                loadedPosts.push({ slug, title, date });
+                    loadedPosts.push({ slug, title, date });
+                }
+
+                setPosts(loadedPosts.reverse());
+            } catch (err) {
+                console.error("Error loading posts:", err);
             }
-
-            setPosts(loadedPosts.reverse());
         };
 
         loadPosts();

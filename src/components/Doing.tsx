@@ -48,7 +48,7 @@ const Doing = (
 					() => send(Operation.Heartbeat),
 					(d as { heartbeat_interval: number }).heartbeat_interval
 				);
-				send(Operation.Initialize, { subscribe_to_id: import.meta.env.DISCORD_ID });
+				send(Operation.Initialize, { subscribe_to_id: import.meta.env.VITE_DISCORD_ID });
 			} else if (op === Operation.Event && t) {
 				if ([EventType.INIT_STATE, EventType.PRESENCE_UPDATE].includes(t))
 					setDoing(d as Presence);

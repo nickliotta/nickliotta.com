@@ -26,17 +26,6 @@ type SocketEvent = {
 	d: Presence | unknown;
 };
 
-const logLanyardEvent = (eventName: string, data: any) => {
-	console.log(
-		`%cLanyard%c <~ ${eventName} %o`,
-		"background-color: #d7bb87; border-radius: 5px; padding: 3px; color: #372910;",
-		"background: none; color: #d7bb87;",
-		data
-	);
-};
-
-const discordId = "170107897366315009";
-
 const Doing = (
 	{ setActive, ...props }: { setActive: (active: boolean) => void } & any,
 	ref: any
@@ -59,10 +48,8 @@ const Doing = (
 					() => send(Operation.Heartbeat),
 					(d as { heartbeat_interval: number }).heartbeat_interval
 				);
-				send(Operation.Initialize, { subscribe_to_id: discordId });
+				send(Operation.Initialize, { subscribe_to_id: import.meta.env.DISCORD_ID });
 			} else if (op === Operation.Event && t) {
-				logLanyardEvent(t, d);
-
 				if ([EventType.INIT_STATE, EventType.PRESENCE_UPDATE].includes(t))
 					setDoing(d as Presence);
 			}
@@ -144,12 +131,7 @@ const Container = styled(motion.div)`
 	border-top: 1px solid hsl(var(--primary-800));
 	padding: 1rem;
 	cursor: pointer;
-
-	// &:hover {
-	// 	background-color: hsl(var(--primary-800));
-	// 	color: #fff;
-	// }
-
+    
 	h5 {
 		margin: 0;
 		margin-bottom: 10px;
@@ -176,7 +158,7 @@ const LiveDot = styled.div`
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background-color: #ff5252;
+	background-color: #1db954;
 	animation: ${fadeInOut} 2s ease-in-out infinite;
 `;
 

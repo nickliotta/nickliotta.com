@@ -31,6 +31,8 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: Build
+        env:
+          DISCORD_ID: ${{ secrets.DISCORD_ID }} 
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5

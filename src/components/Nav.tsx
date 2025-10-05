@@ -133,7 +133,7 @@ const Nav = () => {
 						<a href="https://scholar.google.com/citations?user=OZ2ZWnIAAAAJ" target="_blank" rel="noopener noreferrer">
 							<GoogleScholarLogo />
 						</a>
-						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+						<a href="/resume" target="_blank" rel="noopener noreferrer">
 							<ResumeLogo />
 						</a>
 					</Icons>

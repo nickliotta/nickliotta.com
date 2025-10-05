@@ -32,8 +32,6 @@ function App() {
                                 <Route exact path="/publications" component={Publications} />
                                 <Route exact path="/posts" component={Posts} />
                                 <Route exact path="/posts/:slug" component={Post} />
-                                <Route exact path="/resume" render={() => { window.location.href = "/resume.pdf"; return null; }}
-                                />   
                                 {/* <Route exact path="/photography" component={Photography} /> */}
                             </Switch>
                         </AnimatePresence>

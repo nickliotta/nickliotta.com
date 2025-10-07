@@ -37,18 +37,19 @@ const Doing = (
 		if (socket !== null) socket.send(JSON.stringify({ op, d }));
 	};
 
-    function getAsset(application_id: string | number | undefined, asset?: string): string | undefined {
+    const getAsset = (application_id: string | number | undefined, asset?: string): string | undefined => {
         if (!asset || !application_id) return undefined;
 
         if (asset.startsWith("mp:external/")) {
             const httpsIndex = asset.indexOf("https/");
+            
             if (httpsIndex !== -1) {
                 return "https://" + asset.substring(httpsIndex + "https/".length);
             }
         }
 
         return `https://cdn.discordapp.com/app-assets/${application_id}/${asset}.png`;
-    }
+    };
 
 	useEffect(() => {
 		if (socket === null) return () => {};
@@ -77,10 +78,10 @@ const Doing = (
 		if (!socket) setSocket(new WebSocket("wss://api.lanyard.rest/socket"));
 	}, [socket]);
 
-	const currentActivity = useMemo(
-		() => doing?.activities.filter((activity) => activity.type === 0)[0],
-		[doing]
-	);
+    const currentActivity = useMemo( 
+        () => doing?.activities.filter((activity) => activity.type === 0)[0], 
+        [doing] 
+    );
 
 	useEffect(() => {
 		setActive(doing?.listening_to_spotify || currentActivity);
@@ -110,28 +111,30 @@ const Doing = (
 					</>
 				</Container>
 			) : null}
-			{currentActivity ? (
-				<Container {...props}>
-					<h5>Doing something</h5>
-					<ActivityRow>
-						{currentActivity.assets ? (
-							<ActivityImageContainer>
-								<ActivityImage
-									src={getAsset(currentActivity.application_id, currentActivity.assets.large_image)}
-								/>
-								<ActivitySecondaryImage
-									src={getAsset(currentActivity.application_id, currentActivity.assets.small_image)}
-								/>
-							</ActivityImageContainer>
-						) : null}
-						<ActivityInfo>
-							<h5>{currentActivity.name}</h5>
-							{currentActivity.details ? <p>{currentActivity.details}</p> : null}
-							{currentActivity.state ? <p>{currentActivity.state}</p> : null}
-						</ActivityInfo>
-					</ActivityRow>
-				</Container>
-			) : null}
+            {currentActivity ? (
+                <Container {...props}>
+                    <h5>
+                        Doing something
+                    </h5>
+                    <ActivityRow>
+                        {currentActivity.assets ? (
+                            <ActivityImageContainer>
+                                <ActivityImage
+                                    src={getAsset(currentActivity.application_id, currentActivity.assets.large_image)}
+                                />
+                                <ActivitySecondaryImage
+                                    src={getAsset(currentActivity.application_id, currentActivity.assets.small_image)}
+                                />
+                            </ActivityImageContainer>
+                        ) : null}
+                        <ActivityInfo>
+                            <h5>{currentActivity.name}</h5>
+                            {currentActivity.details ? <p>{currentActivity.details}</p> : null}
+                            {currentActivity.state ? <p>{currentActivity.state}</p> : null}
+                        </ActivityInfo>
+                    </ActivityRow>
+                </Container>
+            ) : null}
 		</>
 	);
 };

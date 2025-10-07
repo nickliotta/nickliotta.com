@@ -37,6 +37,19 @@ const Doing = (
 		if (socket !== null) socket.send(JSON.stringify({ op, d }));
 	};
 
+    function getAsset(application_id: string | number | undefined, asset?: string): string | undefined {
+        if (!asset || !application_id) return undefined;
+
+        if (asset.startsWith("mp:external/")) {
+            const httpsIndex = asset.indexOf("https/");
+            if (httpsIndex !== -1) {
+                return "https://" + asset.substring(httpsIndex + "https/".length);
+            }
+        }
+
+        return `https://cdn.discordapp.com/app-assets/${application_id}/${asset}.png`;
+    }
+
 	useEffect(() => {
 		if (socket === null) return () => {};
 
@@ -104,10 +117,10 @@ const Doing = (
 						{currentActivity.assets ? (
 							<ActivityImageContainer>
 								<ActivityImage
-									src={`https://cdn.discordapp.com/app-assets/${currentActivity.application_id}/${currentActivity.assets.large_image}.png`}
+									src={getAsset(currentActivity.application_id, currentActivity.assets.large_image)}
 								/>
 								<ActivitySecondaryImage
-									src={`https://cdn.discordapp.com/app-assets/${currentActivity.application_id}/${currentActivity.assets.small_image}.png`}
+									src={getAsset(currentActivity.application_id, currentActivity.assets.small_image)}
 								/>
 							</ActivityImageContainer>
 						) : null}

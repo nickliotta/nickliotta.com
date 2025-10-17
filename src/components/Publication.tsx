@@ -100,6 +100,7 @@ const Container = styled.div`
 	width: 100%;
 	box-sizing: border-box;
 	font-family: "Space Mono", monospace;
+    font-size: 0.95em;
 `;
 
 const Title = styled.h3`
@@ -178,7 +179,7 @@ const AbstractBox = styled.div<{ show: boolean }>`
 	font-family: "Open Sans", sans-serif;
 	background-color: hsl(var(--primary-700));
 	border-radius: 5px;
-	font-size: 0.95rem;
+	font-size: 0.90rem;
 	transition:
 		opacity 1s ease,
 		max-height 1s ease,

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { GitHubLogo, XIcon, OrcidLogo, MenuIcon, NavigationIcon, GoogleScholarLogo, LinkedInLogo, ResumeLogo } from "./Icons";
+import { GitHubLogo, XIcon, OrcidLogo, MenuIcon, NavigationIcon, GoogleScholarLogo, LinkedInLogo } from "./Icons";
 import Doing from "./Doing";
 import useSound from "use-sound";
 
@@ -112,9 +112,6 @@ const Nav = () => {
 						<Page active={pathname === "/publications" ? 1 : 0} to="/publications">
 							publications
 						</Page>
-						{/* <Page active={pathname === "/photography" ? 1 : 0} to="/photography">
-							photography
-						</Page> */}
 						<Page active={pathname.startsWith("/posts") ? 1 : 0} to="/posts">
 							posts
 						</Page> 
@@ -132,9 +129,6 @@ const Nav = () => {
 						</a>
 						<a href="https://scholar.google.com/citations?user=OZ2ZWnIAAAAJ" target="_blank" rel="noopener noreferrer">
 							<GoogleScholarLogo />
-						</a>
-						<a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-							<ResumeLogo />
 						</a>
 					</Icons>
 					<Doing

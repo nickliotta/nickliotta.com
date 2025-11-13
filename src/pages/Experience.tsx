@@ -17,7 +17,7 @@ const Experience = () => {
             department              : "Feinstein Institutes for Medical Research",
             location                : "Manhasset, New York",
             role                    : "Consultant Bioinformatician",
-            website                 : "https://feinstein.northwell.edu/institutes-researchers/institute-translational-research"
+            website                 : "https://feinstein.northwell.edu/"
         },
         {
             logo                    : ColdSpringHarborLaboratory,
@@ -35,7 +35,7 @@ const Experience = () => {
             department              : "Department of Psychology",
             location                : "Pittsburgh, Pennsylvania",
             role                    : "Undergraduate Research Fellow",
-            website                 : "https://www.tsaylab.com/"
+            website                 : "https://www.cmu.edu/"
         },
         {
             logo                    : WeillCornell,
@@ -44,7 +44,7 @@ const Experience = () => {
             department              : "Department of Medicine",
             location                : "New York, New York",
             role                    : "Undergraduate Research Assistant",
-            website                 : "https://medicine.weill.cornell.edu/divisions-programs/infectious-diseases"
+            website                 : "https://medicine.weill.cornell.edu/"
         },
         {
             logo                    : GladstoneInstitutes,
@@ -53,7 +53,7 @@ const Experience = () => {
             department              : "Gladstone Institute",
             location                : "San Francisco, California",
             role                    : "High School Student Researcher",
-            website                 : "https://kroganlab.ucsf.edu/krogan-lab"
+            website                 : "https://www.ucsf.edu/"
         }
     ];
 

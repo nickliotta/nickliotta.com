@@ -17,10 +17,8 @@ const Work = ({
 	logo,
 	department,
 	role,
-	principalInvestigator,
 	location,
 	timeline,
-	advisors,
     website
 }: {
 	company: string;
@@ -28,9 +26,7 @@ const Work = ({
 	department: string;
 	role: string;
 	location?: string;
-	principalInvestigator?: string;
 	timeline?: string;
-	advisors?: string;
     website: string;
 }) => {
 	const [props, set] = useSpring(() => ({
@@ -63,17 +59,7 @@ const Work = ({
                 </Header>
                 <Content>
                     <p>
-                        {role}{" "}
-                        {principalInvestigator && (
-                            <>
-                                under{" "}
-                                <MentorTooltip title={advisors} arrow>
-                                    <Advisor>
-                                        {principalInvestigator}
-                                    </Advisor>
-                                </MentorTooltip>
-                            </>
-                        )}
+                        {role}
                     </p>
                 </Content>
             </Container>

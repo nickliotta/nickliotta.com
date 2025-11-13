@@ -16,8 +16,6 @@ const Experience = () => {
             company                 : "Northwell Health",
             department              : "Feinstein Institutes for Medical Research",
             location                : "Manhasset, New York",
-            principalInvestigator   : "Dr. Douglas Nixon",
-            advisors                : "Advised by Helena Reyes-Gopar, Nicholas Dopkins, and Douglas Nixon",
             role                    : "Consultant Bioinformatician",
             website                 : "https://feinstein.northwell.edu/institutes-researchers/institute-translational-research"
         },
@@ -36,8 +34,6 @@ const Experience = () => {
             company                 : "Carnegie Mellon University",
             department              : "Department of Psychology",
             location                : "Pittsburgh, Pennsylvania",
-            principalInvestigator   : "Dr. Jonathan Tsay",
-            advisors                : "Advised by Jonathan Tsay",
             role                    : "Undergraduate Research Fellow",
             website                 : "https://www.tsaylab.com/"
         },
@@ -47,8 +43,6 @@ const Experience = () => {
             company                 : "Weill Cornell Medicine",
             department              : "Department of Medicine",
             location                : "New York, New York",
-            principalInvestigator   : "Dr. Douglas Nixon",
-            advisors                : "Advised by Bhavya Singh, Jez L. Marston, and Douglas Nixon",
             role                    : "Undergraduate Research Assistant",
             website                 : "https://medicine.weill.cornell.edu/divisions-programs/infectious-diseases"
         },
@@ -58,8 +52,6 @@ const Experience = () => {
             company                 : "University of California, San Francisco",
             department              : "Gladstone Institute",
             location                : "San Francisco, California",
-            principalInvestigator   : "Dr. Nevan Krogan",
-            advisors                : "Advised by Mehdi Bouhaddou",
             role                    : "High School Student Researcher",
             website                 : "https://kroganlab.ucsf.edu/krogan-lab"
         }
@@ -74,8 +66,6 @@ const Experience = () => {
         company                 : string;
         department              : string;
         location                : string;
-        principalInvestigator?  : string;
-        advisors?               : string;
         role                    : string;
         website                 : string;
     };
@@ -88,8 +78,6 @@ const Experience = () => {
                 company                 = {work.company}
                 department              = {work.department}
                 location                = {work.location}
-                principalInvestigator   = {work.principalInvestigator}
-                advisors                = {work.advisors}
                 role                    = {work.role}
                 website                 = {work.website}
             />

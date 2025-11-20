@@ -1,6 +1,6 @@
 # nickliotta.com
 
-This is the React app that runs on [nickliotta.com](https://nickliotta.com).
+This is the React app that runs on [nick.tel](https://nick.tel).
 
 ## Dependencies
 
